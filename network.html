@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Network · OMNI Exchange</title>
+  <meta name="description" content="Sister sites in the One Mission public network." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://omniexchange.org/network.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0a0f14', parchment: '#e8e4d9', mark: '#0ea5e9',
+            hive: '#c4a35a', leaf: '#6b8f71', mist: '#8b9aab',
+          },
+          fontFamily: {
+            display: ['\"Cormorant Garamond\"', 'Georgia', 'serif'],
+            sans: ['\"DM Sans\"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #0a0f14; color: #e8e4d9; min-height: 100vh; }
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .panel { background: rgba(14, 20, 26, 0.85); border: 1px solid rgba(196, 163, 90, 0.12); }
+    .rule { height: 1px; background: linear-gradient(90deg, transparent, rgba(196, 163, 90, 0.35), transparent); }
+    a.gloss { color: #c4a35a; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(196, 163, 90, 0.4); }
+    a.gloss:hover { color: #e8e4d9; text-decoration-color: rgba(196, 163, 90, 0.8); }
+    .oe-nav-toggle { display: none; width: 2.5rem; height: 2.5rem; align-items: center; justify-content: center; border-radius: 9999px; border: 1px solid rgba(196,163,90,0.25); background: transparent; color: #e8e4d9; cursor: pointer; }
+    @media (max-width: 639px) { .oe-nav-toggle { display: inline-flex; } .oe-nav-desktop { display: none !important; } }
+    #oe-mobile-menu { display: none; border-top: 1px solid rgba(255,255,255,0.06); background: rgba(10,15,20,0.98); }
+    #oe-mobile-menu.open { display: block; }
+    #oe-mobile-menu a { display: block; padding: 0.85rem 1.25rem; color: #8b9aab; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.04); font-size: 0.95rem; }
+    #oe-mobile-menu a:hover { color: #e8e4d9; background: rgba(196,163,90,0.08); }
+  </style>
+</head>
+<body class="antialiased">
+  <header class="border-b border-white/5 sticky top-0 z-40 bg-ink/85 backdrop-blur-md">
+    <div class="max-w-4xl mx-auto px-5 py-4 flex items-center justify-between gap-3">
+      <a href="/" class="flex items-center gap-3 min-w-0">
+        <div class="w-8 h-8 rounded-full border border-hive/40 flex items-center justify-center text-hive text-xs font-semibold tracking-widest shrink-0">OE</div>
+        <div class="min-w-0">
+          <div class="font-semibold tracking-tight text-parchment text-sm">OMNI Exchange</div>
+          <div class="text-[10px] text-mist/70 uppercase tracking-wider">Fiat · Crypto · Traces</div>
+        </div>
+      </a>
+      <nav class="oe-nav-desktop flex flex-wrap justify-end gap-3 sm:gap-5 text-sm text-mist/75" aria-label="Primary">
+        <a href="books.html" class="hover:text-parchment transition">Books</a>
+        <a href="rules.html" class="hover:text-parchment transition">Rules</a>
+        <a href="refused.html" class="hover:text-parchment transition">Refused</a>
+        <a href="network.html" class="text-hive">Network</a>
+      </nav>
+      <button type="button" id="oe-nav-toggle" class="oe-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="oe-mobile-menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="oe-mobile-menu">
+      <a href="books.html">Books</a>
+      <a href="rules.html">Rules</a>
+      <a href="refused.html">Refused</a>
+      <a href="network.html">Network</a>
+    </div>
+  </header>
+  <section class="max-w-4xl mx-auto px-5 pt-16 md:pt-20 pb-10">
+    <p class="text-hive text-[11px] uppercase tracking-[0.3em] mb-4">Network</p>
+    <h1 class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-parchment leading-[1.1] max-w-3xl">
+      Sister sites, one mission.
+    </h1>
+    <p class="mt-5 text-mist max-w-2xl leading-relaxed">Exchange is the money-trace door. Other doors hold posture, apps, and tools.</p>
+    <div class="rule max-w-md my-8"></div>
+  </section>
+  <section class="max-w-4xl mx-auto px-5 pb-16 space-y-4">
+    <a href="/" class="panel rounded-2xl p-6 block hover:border-hive/40 transition">
+      <div class="text-hive text-xs uppercase tracking-wider mb-1">This site</div>
+      <h2 class="font-display text-2xl text-parchment font-semibold">OMNI Exchange</h2>
+      <p class="mt-2 text-sm text-mist/85">Fiat and crypto flow traces under One Mission. Structure only.</p>
+    </a>
+    <a href="https://onemissionfoundation.org/" class="panel rounded-2xl p-6 block hover:border-hive/40 transition" rel="noopener noreferrer">
+      <div class="text-leaf text-xs uppercase tracking-wider mb-1">Sister</div>
+      <h2 class="font-display text-2xl text-parchment font-semibold">One Mission Foundation</h2>
+      <p class="mt-2 text-sm text-mist/85">Body · place · circadian continuity. Adam garden posture.</p>
+    </a>
+    <a href="https://onemission.com/" class="panel rounded-2xl p-6 block hover:border-hive/40 transition" rel="noopener noreferrer">
+      <div class="text-hive text-xs uppercase tracking-wider mb-1">Sister</div>
+      <h2 class="font-display text-2xl text-parchment font-semibold">One Mission</h2>
+      <p class="mt-2 text-sm text-mist/85">Public civic surface — court, apps, mission doors.</p>
+    </a>
+    <a href="https://intekspace.com/" class="panel rounded-2xl p-6 block hover:border-hive/40 transition" rel="noopener noreferrer">
+      <div class="text-hive text-xs uppercase tracking-wider mb-1">Sister</div>
+      <h2 class="font-display text-2xl text-parchment font-semibold">Intek Space</h2>
+      <p class="mt-2 text-sm text-mist/85">Tools, philosophy, and the shared Intek visual family.</p>
+    </a>
+  </section>
+  <footer class="border-t border-white/5 py-8">
+    <div class="max-w-4xl mx-auto px-5 space-y-4 text-xs text-mist/45">
+      <div class="flex flex-col sm:flex-row justify-between gap-2">
+        <div>&copy; <span id="y"></span> OMNI Exchange · One Mission</div>
+        <div class="flex flex-wrap gap-4">
+          <a href="/" class="hover:text-mist">Home</a>
+          <a href="books.html" class="hover:text-mist">Books</a>
+          <a href="rules.html" class="hover:text-mist">Rules</a>
+          <a href="refused.html" class="hover:text-mist">Refused</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      var btn = document.getElementById('oe-nav-toggle');
+      var menu = document.getElementById('oe-mobile-menu');
+      if (!btn || !menu) return;
+      function setOpen(o) { menu.classList.toggle('open', o); btn.setAttribute('aria-expanded', o ? 'true' : 'false'); }
+      btn.addEventListener('click', function (e) { e.preventDefault(); setOpen(!menu.classList.contains('open')); });
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+    })();
+  </script>
+</body>
+</html>
