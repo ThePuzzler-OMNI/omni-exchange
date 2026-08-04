@@ -1,0 +1,260 @@
+/* OMNI Exchange — layout without depending on Tailwind CDN scan.
+   Keeps content centered at ~56rem (max-w-4xl) on wide windows. */
+
+:root {
+  --ink: #0a0f14;
+  --parchment: #e8e4d9;
+  --hive: #c4a35a;
+  --mist: #8b9aab;
+  --page-max: 56rem; /* 4xl */
+  --page-pad: 1.25rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: var(--ink);
+  color: var(--parchment);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+/* Width shells used in page HTML (same names as Tailwind for drop-in) */
+.max-w-4xl {
+  max-width: var(--page-max);
+  width: 100%;
+}
+.max-w-3xl {
+  max-width: 48rem;
+  width: 100%;
+}
+.max-w-2xl {
+  max-width: 42rem;
+  width: 100%;
+}
+.max-w-xl {
+  max-width: 36rem;
+  width: 100%;
+}
+.max-w-md {
+  max-width: 28rem;
+  width: 100%;
+}
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.px-5 {
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+}
+.pt-16 {
+  padding-top: 4rem;
+}
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+.pb-16 {
+  padding-bottom: 4rem;
+}
+.pb-20 {
+  padding-bottom: 5rem;
+}
+.mt-3 {
+  margin-top: 0.75rem;
+}
+.mt-6 {
+  margin-top: 1.5rem;
+}
+.mt-10 {
+  margin-top: 2.5rem;
+}
+.mt-12 {
+  margin-top: 3rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+.p-6 {
+  padding: 1.5rem;
+}
+.p-7 {
+  padding: 1.75rem;
+}
+.p-8 {
+  padding: 2rem;
+}
+.block {
+  display: block;
+}
+.leading-relaxed {
+  line-height: 1.625;
+}
+.leading-\[1\.08\] {
+  line-height: 1.08;
+}
+.leading-\[1\.1\] {
+  line-height: 1.1;
+}
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+.tracking-\[0\.3em\] {
+  letter-spacing: 0.3em;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.text-xs {
+  font-size: 0.75rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+}
+.text-2xl {
+  font-size: 1.5rem;
+}
+.text-4xl {
+  font-size: 2.25rem;
+}
+.text-\[11px\] {
+  font-size: 11px;
+}
+.text-hive {
+  color: var(--hive);
+}
+.text-parchment {
+  color: var(--parchment);
+}
+.text-mist {
+  color: var(--mist);
+}
+.text-mist\/80 {
+  color: rgba(139, 154, 171, 0.8);
+}
+.text-mist\/85 {
+  color: rgba(139, 154, 171, 0.85);
+}
+.text-mist\/70 {
+  color: rgba(139, 154, 171, 0.7);
+}
+.rounded-2xl {
+  border-radius: 1rem;
+}
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+.space-y-5 > * + * {
+  margin-top: 1.25rem;
+}
+.panel {
+  background: rgba(14, 20, 26, 0.85);
+  border: 1px solid rgba(196, 163, 90, 0.12);
+  border-radius: 1rem;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+a.panel:hover,
+.panel:hover {
+  border-color: rgba(196, 163, 90, 0.4);
+}
+.rule {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(196, 163, 90, 0.35),
+    transparent
+  );
+}
+a.gloss {
+  color: var(--hive);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(196, 163, 90, 0.4);
+}
+a.gloss:hover {
+  color: var(--parchment);
+  text-decoration-color: rgba(196, 163, 90, 0.8);
+}
+a {
+  color: inherit;
+}
+
+/* Sections always sit in the page shell */
+body > section {
+  max-width: var(--page-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:pt-20 {
+    padding-top: 5rem;
+  }
+  .md\:pt-24 {
+    padding-top: 6rem;
+  }
+  .md\:text-5xl {
+    font-size: 3rem;
+  }
+  .md\:text-6xl {
+    font-size: 3.75rem;
+  }
+  .text-4xl.md\:text-6xl,
+  h1 {
+    /* keep large titles readable */
+  }
+}
