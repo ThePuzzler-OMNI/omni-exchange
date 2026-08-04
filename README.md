@@ -28,17 +28,11 @@ Public control surface for **fiat and crypto flow** under One Mission.
 |------|--------|
 | **Team** | `intekspace` |
 | **Project** | `omni-exchange` |
-| **Production** | https://omni-exchange-iota.vercel.app |
+| **Production** | **https://omniexchange.org** |
+| **www** | https://www.omniexchange.org |
+| **Vercel alias** | https://omni-exchange-iota.vercel.app (still valid) |
 | **Git** | `ThePuzzler-OMNI/omni-exchange` `main` → Vercel auto-deploy |
-| **Custom domain** | Not attached yet (e.g. omniexchange.org when steward owns DNS) |
-
-### Custom domain later (steward DNS)
-
-1. Vercel → `omni-exchange` → Settings → Domains → add apex + `www`
-2. At registrar (e.g. GoDaddy):
-   - A `@` → `76.76.21.21`
-   - CNAME `www` → `cname.vercel-dns.com`
-3. Update `sitemap.xml` / `robots.txt` / canonicals to the real domain after SSL is green
+| **DNS** | GoDaddy live · A `@` → `76.76.21.21` · CNAME `www` → `cname.vercel-dns.com` |
 
 ## Refused
 
