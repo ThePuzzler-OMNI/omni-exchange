@@ -1,0 +1,25 @@
+{
+  "schema": "omni-public-web-registry/v1",
+  "brand": "omni-exchange",
+  "domain": "https://omniexchange.org",
+  "theme": "exchange-hive",
+  "chrome": {
+    "mark": "OE",
+    "home_href": "/",
+    "brand_primary": "OMNI Exchange",
+    "brand_secondary": "Fiat · Crypto · Traces",
+    "accent": "hive",
+    "nav": [
+      { "href": "books.html", "label": "Books" },
+      { "href": "rules.html", "label": "Rules" },
+      { "href": "refused.html", "label": "Refused" },
+      { "href": "network.html", "label": "Network" }
+    ],
+    "sister_links": [
+      { "href": "https://onemissionnetworkandinstitute.org/", "label": "One Mission" },
+      { "href": "https://intekspace.com/", "label": "Intek Space" },
+      { "href": "https://instituteofmatureimagination.org/", "label": "IMI" },
+      { "href": "https://onemissionfoundation.org/", "label": "Foundation" }
+    ]
+  }
+}
