@@ -43,10 +43,10 @@
     '.net-foot-row{display:flex;flex-direction:column;gap:0.75rem;}' +
     '.net-foot-sisters{font-size:0.75rem;color:rgba(139,154,171,0.85);margin-top:1rem;}' +
     '.net-foot-note{font-size:0.75rem;color:rgba(139,154,171,0.5);margin-top:0.75rem;}' +
+    /* Desktop: keep text nav AND always show hamburger (steward request) */
     '@media (min-width:768px){' +
     '.net-nav-desktop{display:flex;}' +
-    '.net-nav-toggle{display:none !important;}' +
-    '#net-mobile-menu,#net-mobile-menu.open{display:none !important;}' +
+    '.net-nav-toggle{display:inline-flex !important;}' +
     '.net-foot-row{flex-direction:row;align-items:center;justify-content:space-between;}' +
     '}';
 
