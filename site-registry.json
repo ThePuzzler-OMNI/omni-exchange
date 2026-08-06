@@ -1,5 +1,8 @@
 {
   "schema": "omni-public-web-registry/v1",
+  "kit": "network-template-kit-v1",
+  "kit_adopt": "Q-NET-ADOPT-EX",
+  "kit_adopted": "2026-08-05",
   "brand": "omni-exchange",
   "domain": "https://omniexchange.org",
   "theme": "exchange-hive",

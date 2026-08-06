@@ -1,13 +1,24 @@
-/* OMNI Exchange — layout without depending on Tailwind CDN scan.
-   Keeps content centered at ~56rem (max-w-4xl) on wide windows. */
+/* OMNI Exchange — network template kit v1 (Q-NET-ADOPT-EX 2026-08-05)
+   Layout without depending on Tailwind CDN scan.
+   Content shell: --page-max 56rem. Brand accents: hive family only. */
 
 :root {
+  /* Brand (hive family — do not introduce apple red as primary) */
   --ink: #0a0f14;
   --parchment: #e8e4d9;
   --hive: #c4a35a;
   --mist: #8b9aab;
-  --page-max: 56rem; /* 4xl */
+  --leaf: #6b8f71;
+
+  /* Network template kit tokens */
+  --page-max: 56rem; /* 896px · max-w-4xl */
+  --page-max-prose: 48rem;
   --page-pad: 1.25rem;
+  --header-h: 3.5rem;
+  --section-gap: 3rem;
+  --section-gap-md: 4rem;
+  --bp-md: 768px;
+  --z-header: 40;
 }
 
 *,
@@ -40,7 +51,7 @@ body {
   width: 100%;
 }
 .max-w-3xl {
-  max-width: 48rem;
+  max-width: var(--page-max-prose);
   width: 100%;
 }
 .max-w-2xl {
@@ -224,7 +235,7 @@ a {
   color: inherit;
 }
 
-/* Sections always sit in the page shell */
+/* Sections always sit in the page shell (kit) */
 body > section {
   max-width: var(--page-max);
   margin-left: auto;
@@ -241,6 +252,9 @@ body > section {
 }
 
 @media (min-width: 768px) {
+  :root {
+    --section-gap: var(--section-gap-md);
+  }
   .md\:pt-20 {
     padding-top: 5rem;
   }
@@ -252,9 +266,5 @@ body > section {
   }
   .md\:text-6xl {
     font-size: 3.75rem;
-  }
-  .text-4xl.md\:text-6xl,
-  h1 {
-    /* keep large titles readable */
   }
 }

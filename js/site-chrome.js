@@ -1,11 +1,15 @@
 /**
- * OMNI Exchange — registry chrome (network chrome contract 2026-08-04).
- * Visibility uses explicit CSS (not Tailwind-only) so the hamburger always works
- * after dynamic inject under Tailwind CDN.
+ * OMNI Exchange — registry chrome
+ * Network template kit v1 · Q-NET-ADOPT-EX 2026-08-05
+ * Explicit CSS (not Tailwind-only). Desktop: text nav + always-on hamburger.
+ * Sisters: omit self. Tokens: --page-max / --page-pad / --header-h from page-layout.css.
  */
 (function () {
   if (window.__oeSiteChrome) return;
   window.__oeSiteChrome = true;
+
+  var KIT = 'network-template-kit-v1';
+  var SELF_HOST_MARKERS = ['omniexchange.org', 'omni-exchange'];
 
   function year() {
     return new Date().getFullYear();
@@ -17,33 +21,50 @@
       .replace(/"/g, '&quot;');
   }
 
+  function isSelfSister(href) {
+    var h = String(href || '').toLowerCase();
+    for (var i = 0; i < SELF_HOST_MARKERS.length; i++) {
+      if (h.indexOf(SELF_HOST_MARKERS[i]) !== -1) return true;
+    }
+    return false;
+  }
+
+  function filterSisters(list) {
+    return (list || []).filter(function (s) {
+      return s && s.href && s.label && !isSelfSister(s.href);
+    });
+  }
+
   var HAMBURGER =
     '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
 
+  /* Structural chrome CSS — sizes use kit tokens when page-layout.css is loaded */
   var CHROME_CSS =
-    'header[data-site-chrome="ready"]{border-bottom:1px solid rgba(255,255,255,0.05);position:sticky;top:0;z-index:40;background:rgba(10,15,20,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}' +
-    '.net-bar{max-width:56rem;margin:0 auto;padding:0 1.25rem;height:3.5rem;display:flex;align-items:center;justify-content:space-between;gap:0.75rem;}' +
+    'header[data-site-chrome="ready"]{border-bottom:1px solid rgba(255,255,255,0.05);position:sticky;top:0;z-index:var(--z-header,40);background:rgba(10,15,20,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}' +
+    '.net-bar{max-width:var(--page-max,56rem);margin:0 auto;padding:0 var(--page-pad,1.25rem);height:var(--header-h,3.5rem);display:flex;align-items:center;justify-content:space-between;gap:0.75rem;}' +
     '.net-brand{display:flex;align-items:center;gap:0.75rem;min-width:0;text-decoration:none;color:#e8e4d9;}' +
     '.net-mark{width:2rem;height:2rem;border-radius:9999px;border:1px solid rgba(196,163,90,0.4);display:inline-flex;align-items:center;justify-content:center;color:#c4a35a;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;flex-shrink:0;}' +
     '.net-title{font-weight:600;font-size:0.875rem;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}' +
     '.net-sub{font-size:10px;color:rgba(139,154,171,0.75);text-transform:uppercase;letter-spacing:0.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}' +
+    '.net-actions{display:flex;align-items:center;gap:0.75rem;flex-shrink:0;}' +
     '.net-nav-desktop{display:none;flex-wrap:wrap;justify-content:flex-end;gap:1.15rem;font-size:0.875rem;}' +
     '.net-nav-desktop a{color:rgba(139,154,171,0.85);text-decoration:none;}' +
     '.net-nav-desktop a:hover{color:#e8e4d9;}' +
     '.net-nav-toggle{display:inline-flex;width:2.5rem;height:2.5rem;align-items:center;justify-content:center;border-radius:9999px;border:1px solid rgba(196,163,90,0.35);background:transparent;color:#e8e4d9;cursor:pointer;padding:0;}' +
     '.net-nav-toggle:hover{border-color:rgba(196,163,90,0.7);}' +
+    '.net-nav-toggle:focus-visible{outline:2px solid rgba(196,163,90,0.7);outline-offset:2px;}' +
     '#net-mobile-menu{display:none;border-top:1px solid rgba(255,255,255,0.05);background:rgba(10,15,20,0.98);}' +
     '#net-mobile-menu.open{display:block;}' +
-    '#net-mobile-menu a{display:block;padding:0.85rem 1.25rem;color:#8b9aab;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.95rem;}' +
+    '#net-mobile-menu a{display:block;padding:0.85rem 1.25rem;color:#8b9aab;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.95rem;min-height:44px;}' +
     '#net-mobile-menu a:hover{color:#e8e4d9;background:rgba(196,163,90,0.08);}' +
     'footer[data-site-chrome="ready"]{border-top:1px solid rgba(255,255,255,0.05);margin-top:3rem;}' +
-    '.net-foot{max-width:56rem;margin:0 auto;padding:2.5rem 1.25rem;font-size:0.875rem;color:rgba(139,154,171,0.75);}' +
+    '.net-foot{max-width:var(--page-max,56rem);margin:0 auto;padding:2.5rem var(--page-pad,1.25rem);font-size:0.875rem;color:rgba(139,154,171,0.75);}' +
     '.net-foot a{color:inherit;}' +
     '.net-foot a:hover{color:#e8e4d9;}' +
     '.net-foot-row{display:flex;flex-direction:column;gap:0.75rem;}' +
     '.net-foot-sisters{font-size:0.75rem;color:rgba(139,154,171,0.85);margin-top:1rem;}' +
     '.net-foot-note{font-size:0.75rem;color:rgba(139,154,171,0.5);margin-top:0.75rem;}' +
-    /* Desktop: keep text nav AND always show hamburger (steward request) */
+    /* Desktop: text nav AND always-on hamburger (kit + steward) */
     '@media (min-width:768px){' +
     '.net-nav-desktop{display:flex;}' +
     '.net-nav-toggle{display:inline-flex !important;}' +
@@ -54,6 +75,7 @@
     if (document.getElementById('net-chrome-css')) return;
     var s = document.createElement('style');
     s.id = 'net-chrome-css';
+    s.setAttribute('data-kit', KIT);
     s.textContent = CHROME_CSS;
     document.head.appendChild(s);
   }
@@ -61,16 +83,12 @@
   function buildHeader(chrome) {
     var desktop = (chrome.nav || [])
       .map(function (item) {
-        return (
-          '<a href="' + esc(item.href) + '">' + esc(item.label) + '</a>'
-        );
+        return '<a href="' + esc(item.href) + '">' + esc(item.label) + '</a>';
       })
       .join('');
     var mobile = (chrome.nav || [])
       .map(function (item) {
-        return (
-          '<a href="' + esc(item.href) + '">' + esc(item.label) + '</a>'
-        );
+        return '<a href="' + esc(item.href) + '">' + esc(item.label) + '</a>';
       })
       .join('');
     return (
@@ -86,12 +104,13 @@
       '</div><div class="net-sub">' +
       esc(chrome.brand_secondary || '') +
       '</div></span></a>' +
+      '<div class="net-actions">' +
       '<nav class="net-nav-desktop" aria-label="Primary">' +
       desktop +
       '</nav>' +
       '<button type="button" id="net-nav-toggle" class="net-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="net-mobile-menu">' +
       HAMBURGER +
-      '</button></div>' +
+      '</button></div></div>' +
       '<div id="net-mobile-menu" role="navigation" aria-label="Mobile">' +
       mobile +
       '</div>'
@@ -99,7 +118,7 @@
   }
 
   function buildFooter(chrome) {
-    var sisters = (chrome.sister_links || [])
+    var sisters = filterSisters(chrome.sister_links)
       .map(function (s) {
         return (
           '<a href="' +
@@ -128,9 +147,11 @@
       local +
       '</div></div>' +
       '<div class="net-foot-sisters">Sister network: ' +
-      sisters +
+      (sisters || '—') +
       '</div>' +
-      '<p class="net-foot-note">Traces only · not a bank or broker. See Refused.</p>' +
+      '<p class="net-foot-note">Traces only · not a bank or broker. See Refused. · kit ' +
+      KIT +
+      '</p>' +
       '</div>'
     );
   }
@@ -139,12 +160,14 @@
     var btn = document.getElementById('net-nav-toggle');
     var menu = document.getElementById('net-mobile-menu');
     if (!btn || !menu) return;
+
     function setOpen(o) {
       if (o) menu.classList.add('open');
       else menu.classList.remove('open');
       btn.setAttribute('aria-expanded', o ? 'true' : 'false');
       btn.setAttribute('aria-label', o ? 'Close menu' : 'Open menu');
     }
+
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopPropagation();
@@ -155,11 +178,22 @@
         setOpen(false);
       });
     });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setOpen(false);
+    });
+    document.addEventListener('click', function (e) {
+      if (!menu.classList.contains('open')) return;
+      if (menu.contains(e.target) || btn.contains(e.target)) return;
+      setOpen(false);
+    });
   }
 
   function apply(reg) {
     ensureCss();
     var chrome = reg.chrome || {};
+    chrome.sister_links = filterSisters(chrome.sister_links);
+    document.documentElement.setAttribute('data-network-kit', KIT);
+
     var headers = document.querySelectorAll('header');
     if (!headers.length) {
       var h = document.createElement('header');
@@ -190,9 +224,30 @@
     }
   }
 
+  var FALLBACK_CHROME = {
+    chrome: {
+      mark: 'OE',
+      home_href: '/',
+      brand_primary: 'OMNI Exchange',
+      brand_secondary: 'Fiat · Crypto · Traces',
+      accent: 'hive',
+      nav: [
+        { href: 'books.html', label: 'Books' },
+        { href: 'rules.html', label: 'Rules' },
+        { href: 'refused.html', label: 'Refused' },
+        { href: 'network.html', label: 'Network' },
+      ],
+      sister_links: [
+        { href: 'https://onemissionnetworkandinstitute.org/', label: 'One Mission' },
+        { href: 'https://intekspace.com/', label: 'Intek Space' },
+        { href: 'https://instituteofmatureimagination.org/', label: 'IMI' },
+        { href: 'https://onemissionfoundation.org/', label: 'Foundation' },
+      ],
+    },
+  };
+
   function boot() {
     if (document.documentElement.getAttribute('data-site-chrome') === 'skip') return;
-    // Remove broken leftover year scripts that run before #y exists
     fetch('site-registry.json', { credentials: 'same-origin' })
       .then(function (r) {
         if (!r.ok) throw new Error(String(r.status));
@@ -201,36 +256,7 @@
       .then(apply)
       .catch(function (e) {
         console.warn('[exchange site-chrome]', e);
-        // Fallback chrome so hamburger still exists if registry fails
-        apply({
-          chrome: {
-            mark: 'OE',
-            home_href: '/',
-            brand_primary: 'OMNI Exchange',
-            brand_secondary: 'Fiat · Crypto · Traces',
-            nav: [
-              { href: 'books.html', label: 'Books' },
-              { href: 'rules.html', label: 'Rules' },
-              { href: 'refused.html', label: 'Refused' },
-              { href: 'network.html', label: 'Network' },
-            ],
-            sister_links: [
-              {
-                href: 'https://onemissionnetworkandinstitute.org/',
-                label: 'One Mission',
-              },
-              { href: 'https://intekspace.com/', label: 'Intek Space' },
-              {
-                href: 'https://instituteofmatureimagination.org/',
-                label: 'IMI',
-              },
-              {
-                href: 'https://onemissionfoundation.org/',
-                label: 'Foundation',
-              },
-            ],
-          },
-        });
+        apply(FALLBACK_CHROME);
       });
   }
 

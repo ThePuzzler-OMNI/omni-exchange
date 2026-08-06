@@ -7,10 +7,24 @@ Public control surface for **fiat and crypto flow** under One Mission.
 
 ## Stack
 
-- Static HTML + Tailwind CDN (Intek / Foundation family)
+- Static HTML + Tailwind CDN (optional; layout/chrome **not** Tailwind-only)
 - Fonts: Cormorant Garamond + DM Sans
-- Colors: ink / parchment / hive / leaf / mist
+- Colors: ink / parchment / **hive** gold (hive family — not Foundation apple)
 - Vercel (Framework: Other, no build)
+
+## Network template kit (Q-NET-ADOPT-EX · 2026-08-05)
+
+Aligned to `product/docs/NETWORK_TEMPLATE_KIT_v1_2026-08-05.md`:
+
+| Rule | Exchange |
+|------|----------|
+| `--page-max: 56rem` | `css/page-layout.css` |
+| Explicit chrome CSS | `js/site-chrome.js` inject |
+| Desktop hamburger always on | yes |
+| Sisters omit self | registry + runtime filter |
+| Registry schema | `omni-public-web-registry/v1` + `kit` field |
+
+Smoke after deploy: open https://omniexchange.org/ · desktop hamburger visible · mobile menu Escape closes · footer sisters = OM · Intek · IMI · Foundation (no Exchange self).
 
 ## Pages
 
