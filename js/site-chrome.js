@@ -149,7 +149,7 @@
       '<div class="net-foot-sisters">Sister network: ' +
       (sisters || '—') +
       '</div>' +
-      '<p class="net-foot-note">Traces only · not a bank or broker. See Refused. · kit ' +
+      '<p class="net-foot-note">Trust loop · money traces secondary · not a bank or broker. See Refused. · kit ' +
       KIT +
       '</p>' +
       '</div>'
@@ -229,9 +229,10 @@
       mark: 'OE',
       home_href: '/',
       brand_primary: 'OMNI Exchange',
-      brand_secondary: 'Fiat · Crypto · Traces',
+      brand_secondary: 'Trust · Consilience · Traces',
       accent: 'hive',
       nav: [
+        { href: 'traces.html', label: 'Traces' },
         { href: 'books.html', label: 'Books' },
         { href: 'rules.html', label: 'Rules' },
         { href: 'refused.html', label: 'Refused' },
