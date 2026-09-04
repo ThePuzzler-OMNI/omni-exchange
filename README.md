@@ -31,7 +31,7 @@ Smoke after deploy: open https://omniexchange.org/ · desktop hamburger visible 
 
 | Path | Job |
 |------|-----|
-| `/` | Home — trust / find & engineer consilience; geometry lenses; money doors secondary |
+| `/` | Home — trust / find & engineer consilience; 1·3·5·13 lenses; 7+11 beta pointer; money doors secondary |
 | `/traces` | Gather witnesses; labeled money-trace feed is secondary |
 | `/books` | Durable structure + irrigation ledgers |
 | `/rules` | How signals and traces earn a line |
@@ -59,4 +59,8 @@ No marketplace bot swarm on this site. OMNI Grok-Bot may help steward feedback i
 
 ## Refused
 
-See `refused.html`. No investment advice. No custody. No promised returns. No replacing Foundation self-stewardship with collective noise.
+See `refused.html`. No investment advice. No custody. No promised returns. No replacing Foundation self-stewardship with collective noise. No marketplace bot swarm, commandment agents, chakra clinic, or tip-mall framing.
+
+## Lenses · 7 + 11 (beta)
+
+Answer lenses only (body map + faith axis-plus-ten). They do **not** replace 1 · 3 · 5 · 13 and are not the headline. Fuller faith/vessel treatment: https://onemissionfoundation.org/
