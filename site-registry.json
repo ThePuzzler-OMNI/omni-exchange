@@ -10,12 +10,13 @@
     "mark": "OE",
     "home_href": "/",
     "brand_primary": "OMNI Exchange",
-    "brand_secondary": "Fiat · Crypto · Traces",
+    "brand_secondary": "Trust · Consilience · Traces",
     "accent": "hive",
     "nav": [
       { "href": "books.html", "label": "Books" },
       { "href": "rules.html", "label": "Rules" },
       { "href": "refused.html", "label": "Refused" },
+      { "href": "traces.html", "label": "Traces" },
       { "href": "network.html", "label": "Network" }
     ],
     "sister_links": [

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traces · OMNI Exchange</title>
+  <meta name="description" content="Secondary labeled traces — public signals and money purpose lines. Not a tip mall, bank statement, or trading feed." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://omniexchange.org/traces.html" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/page-layout.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Sans:opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#0a0f14', parchment: '#e8e4d9', mark: '#0ea5e9',
+            hive: '#c4a35a', leaf: '#6b8f71', mist: '#8b9aab',
+          },
+          fontFamily: {
+            display: ['\"Cormorant Garamond\"', 'Georgia', 'serif'],
+            sans: ['\"DM Sans\"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #0a0f14; color: #e8e4d9; min-height: 100vh; }
+    .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .panel { background: rgba(14, 20, 26, 0.85); border: 1px solid rgba(196, 163, 90, 0.12); }
+    .rule { height: 1px; background: linear-gradient(90deg, transparent, rgba(196, 163, 90, 0.35), transparent); }
+    a.gloss { color: #c4a35a; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(196, 163, 90, 0.4); }
+    a.gloss:hover { color: #e8e4d9; text-decoration-color: rgba(196, 163, 90, 0.8); }
+  </style>
+</head>
+<body class="antialiased">
+  <header data-site-chrome></header>
+
+  <section class="max-w-4xl mx-auto px-5 pt-16 md:pt-20 pb-8">
+    <p class="text-hive text-[11px] uppercase tracking-[0.3em] mb-4">Traces · secondary</p>
+    <h1 class="font-display text-4xl md:text-5xl font-semibold tracking-tight text-parchment leading-[1.1] max-w-3xl">
+      Labeled traces only.
+    </h1>
+    <p class="mt-5 text-mist max-w-2xl leading-relaxed">
+      Find gathers public signals. Money lines that appear here are labeled instruments —
+      purpose, not myth balances. Not a tip mall. Not a trading feed. Not a bank statement.
+    </p>
+    <div class="rule max-w-md my-8"></div>
+    <div class="panel rounded-2xl p-5 text-sm text-mist/90 leading-relaxed space-y-2">
+      <p><strong class="text-parchment">Law:</strong> amount labels are public language only — never full wallet balances or account numbers.</p>
+      <p><strong class="text-parchment">Lanes:</strong> personal, charity Dreams, and Intek do not mix. Gift rail never merges with PAYG.</p>
+      <p><strong class="text-parchment">Tips / Dreams:</strong> when shown, they are labeled traces only.</p>
+      <p><strong class="text-parchment">Member detail:</strong>
+        <a class="gloss" href="https://onemissionnetworkandinstitute.org/profile.html?tab=usage">Profile → Usage</a>
+        for personal credits and AI/SMS burn.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-5 pb-20">
+    <div id="exchange-traces-panel" class="xt-mount" data-exchange-trace-v0="1">Loading traces…</div>
+  </section>
+
+  <footer data-site-chrome></footer>
+  <script src="js/site-chrome.js" defer></script>
+  <script src="js/exchange-traces.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.OMNI_EXCHANGE_TRACES) {
+        OMNI_EXCHANGE_TRACES.mount('exchange-traces-panel');
+      }
+    });
+  </script>
+</body>
+</html>

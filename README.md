@@ -1,9 +1,9 @@
 ﻿# OMNI Exchange
 
-Public control surface for **fiat and crypto flow** under One Mission.
+Public **open door of TRUST** — collective feedback to **find and engineer consilience**.
 
-**Role:** Traces only — structure of ledgers, rules, and refused claims.  
-**Not:** a trading venue, broker, bank, or investment product.
+**Role:** Trusted feedback loop. Money traces are secondary labeled instruments.  
+**Not:** a tip mall, DEX, trading venue, broker, bank, or investment product.
 
 ## Stack
 
@@ -11,6 +11,7 @@ Public control surface for **fiat and crypto flow** under One Mission.
 - Fonts: Cormorant Garamond + DM Sans
 - Colors: ink / parchment / **hive** gold (hive family — not Foundation apple)
 - Vercel (Framework: Other, no build)
+- Optional live money-trace feed: `js/exchange-traces.js` → One Mission Exchange API (purpose lines only; no balances)
 
 ## Network template kit (Q-NET-ADOPT-EX · 2026-08-05)
 
@@ -30,11 +31,12 @@ Smoke after deploy: open https://omniexchange.org/ · desktop hamburger visible 
 
 | Path | Job |
 |------|-----|
-| `/` | Home — standing sentence, three doors |
-| `/books` | Ledger books (fiat, crypto, ops, gifts) |
-| `/rules` | How traces are written and closed |
+| `/` | Home — trust door; find & engineer; geometry 1 · 3 · 5 · 13; three doors |
+| `/books` | Consilient structure + secondary irrigation ledgers |
+| `/rules` | How a signal earns its line |
 | `/refused` | Permanent boundaries |
-| `/network` | Sister sites |
+| `/traces` | Secondary labeled traces (HITL / soft-live feed) |
+| `/network` | Sister sites + Get OMNI |
 
 ## Deploy (live 2026-08-04)
 
@@ -48,6 +50,13 @@ Smoke after deploy: open https://omniexchange.org/ · desktop hamburger visible 
 | **Git** | `ThePuzzler-OMNI/omni-exchange` `main` → Vercel auto-deploy |
 | **DNS** | GoDaddy live · A `@` → `76.76.21.21` · CNAME `www` → `cname.vercel-dns.com` |
 
+## Get OMNI
+
+- https://onemissionnetworkandinstitute.org
+- https://x.ai/bot
+
+OMNI Grok-Bot may help steward feedback into clear language — tool, not throne. No marketplace bot swarm on this site.
+
 ## Refused
 
-See `refused.html`. No investment advice. No custody. No promised returns.
+See `refused.html`. No investment advice. No custody. No promised returns. No dark laundering. No bot marketplace swarm.
