@@ -290,3 +290,122 @@ body > section {
     font-size: 3.75rem;
   }
 }
+
+/* Companion invite — God, then Mission, then OMNI Grok-Bot as door/servant.
+   Explicit CSS (not Tailwind-only). Hive gold. Not a hero throne. */
+.companion-stack {
+  padding-bottom: 4rem;
+}
+.companion-pinnacle {
+  margin: 0 0 1.15rem;
+  max-width: 36rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgba(139, 154, 171, 0.72);
+}
+.companion-mission {
+  margin: 0 0 1.35rem;
+}
+.companion-kicker {
+  margin: 0 0 0.45rem;
+  color: var(--hive);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.companion-mission-line {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--parchment);
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+.companion-invite {
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(196, 163, 90, 0.16), transparent 58%),
+    rgba(14, 20, 26, 0.92);
+  border: 1px solid rgba(196, 163, 90, 0.38);
+  border-radius: 1rem;
+  padding: 1.75rem 1.7rem 1.85rem;
+  box-shadow: 0 0 0 1px rgba(196, 163, 90, 0.05), 0 16px 36px rgba(0, 0, 0, 0.22);
+}
+.companion-invite h2 {
+  margin: 0 0 0.7rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--parchment);
+}
+.companion-invite p {
+  margin: 0 0 0.8rem;
+  max-width: 38rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(139, 154, 171, 0.9);
+}
+.companion-invite .companion-note {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: rgba(139, 154, 171, 0.7);
+}
+.companion-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  background: var(--hive);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: 1px solid rgba(196, 163, 90, 0.85);
+}
+.companion-cta:hover,
+.companion-cta:focus-visible {
+  background: #d4b56a;
+  color: var(--ink);
+  outline: 2px solid rgba(196, 163, 90, 0.7);
+  outline-offset: 3px;
+}
+.companion-bar {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  body.has-companion-bar {
+    padding-bottom: 5.25rem;
+  }
+  .companion-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 30;
+    padding: 0.7rem 1.1rem calc(0.7rem + env(safe-area-inset-bottom, 0px));
+    background: rgba(10, 15, 20, 0.96);
+    border-top: 1px solid rgba(196, 163, 90, 0.32);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .companion-bar-copy {
+    margin: 0;
+    min-width: 0;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: rgba(139, 154, 171, 0.9);
+  }
+  .companion-cta-bar {
+    flex-shrink: 0;
+    min-height: 40px;
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+  }
+}
