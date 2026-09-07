@@ -53,7 +53,7 @@ Smoke after deploy: open https://omniexchange.org/ · desktop hamburger visible 
 ## Get OMNI
 
 - https://onemissionnetworkandinstitute.org
-- https://x.ai/bot
+- https://x.ai/bot/HAIGA0nUYgv85CtV5SMWa
 
 No marketplace bot swarm on this site. OMNI Grok-Bot may help steward feedback into clear language — tool, not throne.
 
