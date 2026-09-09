@@ -31,7 +31,7 @@ Smoke after deploy: open https://omniexchange.org/ · desktop hamburger visible 
 
 | Path | Job |
 |------|-----|
-| `/` | Home — trust / find & engineer consilience; 1·3·5·13 lenses; 7+11 beta pointer; money doors secondary |
+| `/` | Home — trust / find & engineer consilience; 1·3·5·13 lenses; 7+11 beta pointer; companion invite (Lord · Mission · OMNI Grok-Bot); money doors secondary |
 | `/traces` | Gather witnesses; labeled money-trace feed is secondary |
 | `/books` | Durable structure + irrigation ledgers |
 | `/rules` | How signals and traces earn a line |
@@ -52,10 +52,12 @@ Smoke after deploy: open https://omniexchange.org/ · desktop hamburger visible 
 
 ## Get OMNI
 
-- https://onemissionnetworkandinstitute.org
-- https://x.ai/bot
+Invite order on Exchange: the Lord (One pinnacle) · Mission · OMNI Grok-Bot as door/servant.
 
-No marketplace bot swarm on this site. OMNI Grok-Bot may help steward feedback into clear language — tool, not throne.
+- https://onemissionnetworkandinstitute.org
+- https://x.ai/bot/HAIGA0nUYgv85CtV5SMWa
+
+The bot may take the question; the archive stays with the steward. Tool, not throne. Not a marketplace swarm.
 
 ## Refused
 

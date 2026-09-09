@@ -142,7 +142,7 @@
       'Trust loop first. Member product burn stays on ' +
       '<a class="gloss" href="https://onemissionnetworkandinstitute.org/profile.html?tab=usage">One Mission · Usage</a>. ' +
       'Get OMNI: <a class="gloss" href="https://onemissionnetworkandinstitute.org/">One Mission</a> · ' +
-      '<a class="gloss" href="https://x.ai/bot">x.ai/bot</a>. ' +
+      '<a class="gloss" href="https://x.ai/bot/HAIGA0nUYgv85CtV5SMWa">OMNI Grok-Bot</a>. ' +
       'Structure: <a class="gloss" href="books.html">Books</a> · ' +
       '<a class="gloss" href="rules.html">Rules</a> · ' +
       '<a class="gloss" href="refused.html">Refused</a>.' +
