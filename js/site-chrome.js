@@ -38,6 +38,26 @@
   var HAMBURGER =
     '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
 
+  var MIRROR_URL = 'https://omni-mindmap.vercel.app/mirror/soul-time/?door=exchange';
+
+  function mirrorAnchor(mode) {
+    var tight = mode === 'tight';
+    var inner = tight
+      ? '<span class="mirror-door-long">Mirror · Soul-time</span><span class="mirror-door-short">open Mirror</span>'
+      : mode === 'bar'
+        ? 'open Mirror'
+        : 'Mirror · Soul-time';
+    return (
+      '<a class="mirror-door' +
+      (tight ? ' mirror-door-tight' : '') +
+      '" href="' +
+      MIRROR_URL +
+      '" target="_blank" rel="noopener" aria-label="Open Mirror Soul-time (opens in new tab)">' +
+      inner +
+      '</a>'
+    );
+  }
+
   /* Structural chrome CSS — sizes use kit tokens when page-layout.css is loaded */
   var CHROME_CSS =
     'header[data-site-chrome="ready"]{border-bottom:1px solid rgba(255,255,255,0.05);position:sticky;top:0;z-index:var(--z-header,40);background:rgba(10,15,20,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}' +
@@ -108,6 +128,7 @@
       '<nav class="net-nav-desktop" aria-label="Primary">' +
       desktop +
       '</nav>' +
+      mirrorAnchor('tight') +
       '<button type="button" id="net-nav-toggle" class="net-nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="net-mobile-menu">' +
       HAMBURGER +
       '</button></div></div>' +
@@ -146,6 +167,9 @@
       '<div style="font-size:0.75rem">' +
       local +
       '</div></div>' +
+      '<div class="net-foot-door">' +
+      mirrorAnchor('full') +
+      '</div>' +
       '<div class="net-foot-sisters">Sister network: ' +
       (sisters || '—') +
       '</div>' +
@@ -188,6 +212,29 @@
     });
   }
 
+  function placeCompanionDoors() {
+    var invites = document.querySelectorAll('.companion-invite > a.companion-cta');
+    for (var i = 0; i < invites.length; i++) {
+      var a = invites[i];
+      if (a.parentElement.querySelector('.mirror-door')) continue;
+      var row = document.createElement('div');
+      row.className = 'companion-actions';
+      a.parentElement.insertBefore(row, a);
+      row.appendChild(a);
+      row.insertAdjacentHTML('beforeend', mirrorAnchor('full'));
+    }
+    var bars = document.querySelectorAll('.companion-bar > a.companion-cta-bar');
+    for (var j = 0; j < bars.length; j++) {
+      var b = bars[j];
+      if (b.parentElement.querySelector('.mirror-door')) continue;
+      var actions = document.createElement('div');
+      actions.className = 'companion-bar-actions';
+      b.parentElement.insertBefore(actions, b);
+      actions.appendChild(b);
+      actions.insertAdjacentHTML('beforeend', mirrorAnchor('bar'));
+    }
+  }
+
   function apply(reg) {
     ensureCss();
     var chrome = reg.chrome || {};
@@ -222,6 +269,7 @@
         f.innerHTML = buildFooter(chrome);
       });
     }
+    placeCompanionDoors();
   }
 
   var FALLBACK_CHROME = {

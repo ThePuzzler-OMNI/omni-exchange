@@ -402,10 +402,107 @@ body > section {
     line-height: 1.35;
     color: rgba(139, 154, 171, 0.9);
   }
+  .companion-bar {
+    flex-wrap: wrap;
+    row-gap: 0.45rem;
+  }
   .companion-cta-bar {
     flex-shrink: 0;
     min-height: 40px;
     padding: 0.55rem 1rem;
     font-size: 0.85rem;
+  }
+  .companion-bar-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-shrink: 0;
+  }
+}
+
+/* Soft Mirror door — warm amber ghost chip. Quieter than the Get OMNI pill. */
+.mirror-door {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 168, 74, 0.38);
+  background: rgba(232, 168, 74, 0.08);
+  color: #f0c98a;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: rgba(232, 168, 74, 0.28);
+  touch-action: manipulation;
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+}
+.mirror-door-tight .mirror-door-long {
+  display: none;
+}
+.mirror-door-tight .mirror-door-short {
+  display: inline;
+}
+.mirror-door:hover {
+  color: #f8e0b8;
+  background: rgba(232, 168, 74, 0.16);
+  border-color: rgba(240, 180, 92, 0.72);
+  box-shadow: 0 0 14px rgba(232, 168, 74, 0.32);
+}
+.mirror-door:focus {
+  outline: 2px solid #f0b45c;
+  outline-offset: 3px;
+}
+.mirror-door:focus-visible {
+  outline: 2px solid #f0b45c;
+  outline-offset: 3px;
+  color: #f8e0b8;
+  background: rgba(232, 168, 74, 0.16);
+  border-color: rgba(240, 180, 92, 0.72);
+  box-shadow: 0 0 14px rgba(232, 168, 74, 0.34);
+}
+.net-actions .mirror-door {
+  padding: 0 0.7rem;
+  font-size: 0.75rem;
+}
+.net-foot a.mirror-door,
+.net-foot a.mirror-door:hover,
+.net-foot a.mirror-door:focus,
+.net-foot a.mirror-door:focus-visible {
+  color: #f0c98a;
+}
+.net-foot a.mirror-door:hover,
+.net-foot a.mirror-door:focus-visible {
+  color: #f8e0b8;
+}
+.net-foot-door {
+  margin-top: 1rem;
+}
+.companion-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem 0.75rem;
+}
+@media (min-width: 900px) {
+  .mirror-door-tight .mirror-door-long {
+    display: inline;
+  }
+  .mirror-door-tight .mirror-door-short {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mirror-door {
+    transition: none;
   }
 }
