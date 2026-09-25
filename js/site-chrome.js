@@ -151,7 +151,6 @@
       })
       .join(' · ');
     var local = (chrome.nav || [])
-      .slice(0, 5)
       .map(function (n) {
         return '<a href="' + esc(n.href) + '">' + esc(n.label) + '</a>';
       })
@@ -281,6 +280,7 @@
       accent: 'hive',
       nav: [
         { href: 'traces.html', label: 'Traces' },
+        { href: 'items-sent.html', label: 'Items sent' },
         { href: 'books.html', label: 'Books' },
         { href: 'rules.html', label: 'Rules' },
         { href: 'refused.html', label: 'Refused' },

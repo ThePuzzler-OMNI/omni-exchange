@@ -33,6 +33,7 @@ Smoke after deploy: open https://omniexchange.org/ · desktop hamburger visible 
 |------|-----|
 | `/` | Home — trust / find & engineer consilience; 1·3·5·13 lenses; 7+11 beta pointer; companion invite (Lord · Mission · OMNI Grok-Bot); money doors secondary |
 | `/traces` | Gather witnesses; labeled money-trace feed is secondary |
+| `/items-sent` | Items-sent ledger — physical and direct-trade shipments; member IDs only; example rows until stewards curate |
 | `/books` | Durable structure + irrigation ledgers |
 | `/rules` | How signals and traces earn a line |
 | `/refused` | Permanent boundaries |
