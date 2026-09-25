@@ -377,7 +377,7 @@ body > section {
 
 @media (max-width: 767px) {
   body.has-companion-bar {
-    padding-bottom: 5.25rem;
+    padding-bottom: calc(6.5rem + env(safe-area-inset-bottom, 0px));
   }
   .companion-bar {
     display: flex;
@@ -456,19 +456,21 @@ body > section {
   color: #f8e0b8;
   background: rgba(232, 168, 74, 0.16);
   border-color: rgba(240, 180, 92, 0.72);
-  box-shadow: 0 0 14px rgba(232, 168, 74, 0.32);
+  box-shadow: 0 0 12px rgba(240, 180, 92, 0.55);
 }
-.mirror-door:focus {
-  outline: 2px solid #f0b45c;
-  outline-offset: 3px;
-}
+.mirror-door:focus,
 .mirror-door:focus-visible {
   outline: 2px solid #f0b45c;
   outline-offset: 3px;
   color: #f8e0b8;
   background: rgba(232, 168, 74, 0.16);
   border-color: rgba(240, 180, 92, 0.72);
-  box-shadow: 0 0 14px rgba(232, 168, 74, 0.34);
+  box-shadow: 0 0 12px rgba(240, 180, 92, 0.55);
+}
+/* Let the brand line ellipsize when the header door needs the row. */
+.net-brand > span:last-child {
+  min-width: 0;
+  overflow: hidden;
 }
 .net-actions .mirror-door {
   padding: 0 0.7rem;
