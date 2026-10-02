@@ -18,7 +18,8 @@
       { "href": "books.html", "label": "Books" },
       { "href": "rules.html", "label": "Rules" },
       { "href": "refused.html", "label": "Refused" },
-      { "href": "network.html", "label": "Network" }
+      { "href": "network.html", "label": "Network" },
+      { "href": "https://onemissionnetworkandinstitute.org/join", "label": "Join", "external": true }
     ],
     "sister_links": [
       { "href": "https://onemissionnetworkandinstitute.org/", "label": "One Mission" },
