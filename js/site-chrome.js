@@ -84,6 +84,17 @@
     '.net-foot-row{display:flex;flex-direction:column;gap:0.75rem;}' +
     '.net-foot-sisters{font-size:0.75rem;color:rgba(139,154,171,0.85);margin-top:1rem;}' +
     '.net-foot-note{font-size:0.75rem;color:rgba(139,154,171,0.5);margin-top:0.75rem;}' +
+    '.kingdom-bar{margin:0 0 1.35rem;padding:0.9rem 1rem 1rem;border:1px solid rgba(196,163,90,0.18);border-radius:0.9rem;background:linear-gradient(90deg,rgba(196,163,90,0.08),transparent 46%),rgba(14,20,26,0.72);}' +
+    'footer[data-site-chrome]>.kingdom-bar{max-width:var(--page-max,56rem);width:calc(100% - (var(--page-pad,1.25rem) * 2));margin:2.5rem auto 0;}' +
+    '.kingdom-kicker{margin:0 0 0.5rem;color:#c4a35a;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;line-height:1.4;}' +
+    '.kingdom-links{display:flex;flex-wrap:wrap;gap:0.4rem;margin:0;padding:0;list-style:none;}' +
+    '.kingdom-links li{display:flex;max-width:100%;}' +
+    '.kingdom-bar .kingdom-links a{display:inline-flex;align-items:center;justify-content:center;position:relative;box-sizing:border-box;min-height:44px;max-width:100%;padding:0.4rem 0.8rem;border-radius:999px;border:1px solid rgba(196,163,90,0.3);background:rgba(196,163,90,0.06);color:#e8e4d9;font-size:0.8125rem;line-height:1.3;text-align:center;text-decoration:none;transition:background-color 0.15s ease,border-color 0.15s ease,color 0.15s ease;}' +
+    '.kingdom-bar .kingdom-links a:hover{color:#e8e4d9;border-color:rgba(196,163,90,0.7);background:rgba(196,163,90,0.14);}' +
+    '.kingdom-bar .kingdom-links a:focus-visible{outline:2px solid #c4a35a;outline-offset:3px;color:#e8e4d9;}' +
+    '.kingdom-bar .kingdom-links a[aria-current="page"]{color:#c4a35a;border-color:rgba(196,163,90,0.75);}' +
+    '.kingdom-newtab{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0;}' +
+    '@media (prefers-reduced-motion:reduce){.kingdom-bar .kingdom-links a{transition:none;}}' +
     /* Desktop: text nav AND always-on hamburger (kit + steward) */
     '@media (min-width:768px){' +
     '.net-nav-desktop{display:flex;}' +
@@ -138,6 +149,69 @@
     );
   }
 
+  /* Keep labels and hrefs aligned with site-registry.json kingdom_links. Includes this site. */
+  var KINGDOM_LINKS = [
+    { href: 'https://onemissionnetworkandinstitute.org', label: 'One Mission Network' },
+    { href: 'https://intekspace.com', label: 'Intek' },
+    { href: 'https://www.instituteofmatureimagination.org', label: 'Institute of Mature Imagination' },
+    { href: 'https://onemissionfoundation.org', label: 'One Mission Foundation' },
+    { href: 'https://omniexchange.org', label: 'OMNI Exchange' },
+    { href: 'https://getomni.vercel.app', label: 'Get OMNI' },
+    { href: 'https://x.com/omni_puzzler', label: 'X @omni_puzzler', rel: 'me' },
+  ];
+
+  function kingdomLinks(chrome) {
+    var list = chrome && chrome.kingdom_links;
+    if (!list || !list.length) return KINGDOM_LINKS;
+    var clean = list.filter(function (s) {
+      return s && s.href && s.label;
+    });
+    return clean.length ? clean : KINGDOM_LINKS;
+  }
+
+  function isExchangeHref(href) {
+    return /omniexchange\.org/i.test(String(href || ''));
+  }
+
+  function isHomePage() {
+    var path = String(location.pathname || '/').replace(/\/index\.html$/i, '/');
+    return path === '/' || path === '';
+  }
+
+  function buildKingdomBar(links) {
+    var items = (links || [])
+      .map(function (s) {
+        var external = !isExchangeHref(s.href);
+        var rel = [];
+        if (String(s.rel || '').indexOf('me') !== -1 || /x\.com\/omni_puzzler/i.test(s.href)) rel.push('me');
+        if (external) {
+          rel.push('noopener');
+          rel.push('noreferrer');
+        }
+        var current = !external && isHomePage();
+        return (
+          '<li><a href="' +
+          esc(s.href) +
+          '"' +
+          (rel.length ? ' rel="' + esc(rel.join(' ')) + '"' : '') +
+          (external ? ' target="_blank"' : '') +
+          (current ? ' aria-current="page"' : '') +
+          '>' +
+          esc(s.label) +
+          (external ? '<span class="kingdom-newtab"> (opens in a new tab)</span>' : '') +
+          '</a></li>'
+        );
+      })
+      .join('');
+    return (
+      '<nav class="kingdom-bar" aria-label="Kingdom">' +
+      '<p class="kingdom-kicker" aria-hidden="true">Kingdom</p>' +
+      '<ul class="kingdom-links">' +
+      items +
+      '</ul></nav>'
+    );
+  }
+
   function buildFooter(chrome) {
     var sisters = filterSisters(chrome.sister_links)
       .map(function (s) {
@@ -157,6 +231,7 @@
       .join(' · ');
     return (
       '<div class="net-foot">' +
+      buildKingdomBar(kingdomLinks(chrome)) +
       '<div class="net-foot-row">' +
       '<div>© <span id="y">' +
       year() +
@@ -292,10 +367,48 @@
         { href: 'https://instituteofmatureimagination.org/', label: 'IMI' },
         { href: 'https://onemissionfoundation.org/', label: 'Foundation' },
       ],
+      kingdom_links: [
+        { href: 'https://onemissionnetworkandinstitute.org', label: 'One Mission Network' },
+        { href: 'https://intekspace.com', label: 'Intek' },
+        { href: 'https://www.instituteofmatureimagination.org', label: 'Institute of Mature Imagination' },
+        { href: 'https://onemissionfoundation.org', label: 'One Mission Foundation' },
+        { href: 'https://omniexchange.org', label: 'OMNI Exchange' },
+        { href: 'https://getomni.vercel.app', label: 'Get OMNI' },
+        { href: 'https://x.com/omni_puzzler', label: 'X @omni_puzzler', rel: 'me' },
+      ],
     },
   };
 
+  var X_PROFILE = 'https://x.com/omni_puzzler';
+
+  function ensureIdentity() {
+    var head = document.head;
+    if (!head) return;
+    if (!head.querySelector('link[rel="me"][href="' + X_PROFILE + '"]')) {
+      var link = document.createElement('link');
+      link.rel = 'me';
+      link.href = X_PROFILE;
+      head.appendChild(link);
+    }
+    var existing = head.querySelectorAll('script[type="application/ld+json"]');
+    for (var i = 0; i < existing.length; i++) {
+      if (existing[i].textContent.indexOf(X_PROFILE) !== -1) return;
+    }
+    var ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      '@id': 'https://omniexchange.org/#website',
+      name: 'OMNI Exchange',
+      url: 'https://omniexchange.org/',
+      sameAs: [X_PROFILE],
+    });
+    head.appendChild(ld);
+  }
+
   function boot() {
+    ensureIdentity();
     if (document.documentElement.getAttribute('data-site-chrome') === 'skip') return;
     fetch('site-registry.json', { credentials: 'same-origin' })
       .then(function (r) {
